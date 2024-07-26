@@ -12,7 +12,7 @@ exports.getTokens = async () => {
     return tokens;
   } catch (error) {
     try {
-      const response = await axios.get(`${API_TOKEN}/token/@cowtopiabot`);
+      const response = await axios.get(`${API_TOKEN}/token/@bananaBot`);
       const [token] = response.data.data;
       return token;
     } catch (error) {

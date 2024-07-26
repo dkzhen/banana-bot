@@ -4,7 +4,7 @@ const { configDotenv } = require("dotenv");
 configDotenv();
 
 exports.validateToken = async () => {
-  const API_URL = "https://cowtopia-be.tonfarmer.com/user/offline-profit";
+  const API_URL = "https://interface.carv.io/banana/get_user_info";
   const API_BE_URL = process.env.API_TOKEN || "http://localhost:101";
   const tokens = await getTokens();
 
