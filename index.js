@@ -2,6 +2,8 @@ const cron = require("node-cron");
 const express = require("express");
 const { claimLotery } = require("./func/claimLotery");
 const { clickRewards } = require("./func/click");
+const { configDotenv } = require("dotenv");
+configDotenv();
 
 // Schedule the task to run every hour on the hour
 claimLotery();
