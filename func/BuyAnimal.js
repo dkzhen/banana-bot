@@ -30,7 +30,7 @@ exports.buyAnimal = async function () {
           if (purchaseCounter >= maxPurchases) {
             autoBuy = false;
             console.log("Maximum purchases animal reached.");
-            buyFactory();
+            await buyFactory();
           } else if (money >= factoriesIsAvailable[0].animal_cost) {
             const res = await axios.post(
               API_BUY_ANIMAL,

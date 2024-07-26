@@ -19,14 +19,21 @@ exports.buyFactory = async function () {
       const factoriesIsAvailable = factories.filter(
         (factory) => factory.lock === true
       );
+
       const money = res.data.data.user.money;
 
       if (money >= factoriesIsAvailable[0].unlockCost) {
-        const res = await axios.post(API_BUY_FACTORY, {
-          headers: {
-            Authorization: `Bearer ${token.token}`,
-          },
-        });
+        const res = await axios.post(
+          API_BUY_FACTORY,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token.token}`,
+            },
+          }
+        );
+
+        console.log("factory unlocked");
         console.log(res.data.data);
       } else {
         console.log("not enough money to unlock factory");
