@@ -1,17 +1,16 @@
-# cowtopia-bot
+# banana-bot
 
-cowtopia-bot is a Telegram automation tool designed to help you manage and interact with [cowtopia bot](https://t.me/cowtopiabot/app?startapp=1370196228).
+banana-bot is a Telegram automation tool designed to help you manage and interact with [banana bot](https://t.me/OfficialBananaBot/banana?startapp=referral=482NQ81).
 
 <p align="center">
-  <img src="public/cowtopia.png" alt="cowtopia" width="300"/>
+  <img src="public/banana.png" alt="cowtopia" width="300"/>
 </p>
 
 ### Features
 
-- Auto claim Offline Rewards
-- Auto claim Hourly mission
-- Auto buy animal
-- Auto buy factory
+- Auto tap tap
+- Auto claim farming rewards
+- Auto harvest lotery
 - support multi account
 
 ### How to use
@@ -29,7 +28,7 @@ OR you can clone repository and add your token authorization
 - Clone repository
 
 ```bash
-git clone https://github.com/dkzhen/cowtopia-bot.git
+git clone https://github.com/dkzhen/banana-bot.git
 ```
 
 - add config.json on folder configs
