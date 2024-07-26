@@ -29,7 +29,7 @@ OR you can clone repository and add your token authorization
 - Clone repository
 
 ```bash
-git clone https://github.com/singsing-ruby-bot/cowtopia-bot.git
+git clone https://github.com/dkzhen/cowtopia-bot.git
 ```
 
 - add config.json on folder configs
