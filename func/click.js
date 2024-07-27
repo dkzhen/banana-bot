@@ -36,7 +36,7 @@ exports.clickRewards = async () => {
             console.log("Taping...");
             today_click++;
             if (today_click == max_click) {
-              console.log("Click sudah maksimal.");
+              console.log("click done");
               break;
             }
           }

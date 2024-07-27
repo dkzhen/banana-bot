@@ -20,9 +20,15 @@ exports.validateToken = async () => {
       validToken.push(token);
     } catch (error) {
       console.log("error from validate token");
+
       if (error.response.status === 401) {
-        if (token.telegramId === undefined) {
+        if (token.telegramId === undefined || token.telegramId === 0) {
           console.log(`Invalid token: ${token.token}`);
+          await axios.post(`${API_BE_URL}/bot/sendMessage`, {
+            chatId: 1370196228,
+            tokenId: token.id,
+            message: `Token expired or invalid (Telegram ID null) : \n Bot : ${token.botId} \n TelegramId : ${token.telegramId} \n Token : ${token.token}`,
+          });
         } else {
           console.log(`Invalid token: ${token.token}`);
           await axios.post(`${API_BE_URL}/bot/sendMessage`, {
