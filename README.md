@@ -20,7 +20,7 @@ this bot running on my vps you can add your token authorization
 - open the bot [Group Organizer](https://t.me/GroupOrganizer_Bot)
 - send command `/start`
 - send command `/add`
-- select cowtopia-bot
+- select banana-bot
 - and send your token authorization (start with `ey...`)
 
 OR you can clone repository and add your token authorization
