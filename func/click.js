@@ -18,7 +18,7 @@ exports.clickRewards = async () => {
 
         if (today_click >= max_click) {
           console.log(
-            "Today click count has reached or exceeded the max click count."
+            `[ Completed ] : Today click count has reached or exceeded the max click count.`
           );
         } else {
           while (today_click < max_click) {
@@ -33,20 +33,21 @@ exports.clickRewards = async () => {
                 },
               }
             );
-            console.log("Taping...");
+            console.log(`[ Running ] : click successfully ${today_click}`);
+
             today_click++;
             if (today_click == max_click) {
-              console.log("click done");
+              console.log(`[ Completed ] : click done ${today_click}`);
               break;
             }
           }
         }
       } catch (error) {
+        console.log(`[ Error ] : Message : ${error.message}`);
         console.log(error.message);
       }
     }
   } catch (error) {
-    console.log("error from validate token");
-    console.log(error.message);
+    console.log(`[ Error ] : token not valid , message : ${error.message}`);
   }
 };

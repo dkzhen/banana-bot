@@ -4,20 +4,19 @@ const fs = require("fs").promises;
 configDotenv();
 
 exports.getTokens = async () => {
-  const API_TOKEN = process.env.API_TOKEN || "http://localhost:101";
-
   try {
     const data = await fs.readFile("configs/config.json", "utf-8");
     const tokens = JSON.parse(data);
+    tokens.map((item, index) => {
+      console.log(`\n[ Token ${index + 1} ] : ${item.token}`);
+    });
+    console.log(`[ Total tokens ] : ${tokens.length}`);
+
     return tokens;
   } catch (error) {
-    try {
-      const response = await axios.get(`${API_TOKEN}/token/@bananaBot`);
-      const [token] = response.data.data;
-      return token;
-    } catch (error) {
-      console.log("error fetching api token");
-      return null;
-    }
+    console.log(
+      `[ Error ] : Token not found, please add token on configs/config.json`
+    );
+    return null;
   }
 };

@@ -25,10 +25,10 @@ exports.claimLotery = async () => {
                 },
               }
             );
-            console.log("lottery claimed successfully");
+            console.log(`[ Running ] : lottery claimed successfully`);
           }
         } else {
-          console.log("no lottery left");
+          console.log(`[ Completed ] : No lottery left`);
         }
         const count = info.data.data.countdown_end;
         if (count) {
@@ -43,9 +43,9 @@ exports.claimLotery = async () => {
               },
             }
           );
-          console.log("farming claimed successfully");
+          console.log(`[ Running ] : Farming claimed successfully`);
         } else {
-          console.log("farming claim countdown");
+          console.log(`[ Completed ] : Farming countdown..`);
         }
       } catch (error) {
         console.log(error.message);

@@ -5,10 +5,12 @@ configDotenv();
 
 exports.validateToken = async () => {
   const API_URL = "https://interface.carv.io/banana/get_user_info";
-  const API_BE_URL = process.env.API_TOKEN || "http://localhost:101";
+
   const tokens = await getTokens();
 
   const validToken = [];
+  if (tokens === null) return null;
+
   for (const token of tokens) {
     try {
       await axios.get(API_URL, {
@@ -16,29 +18,11 @@ exports.validateToken = async () => {
           Authorization: `Bearer ${token.token}`,
         },
       });
-
       validToken.push(token);
     } catch (error) {
-      console.log("error from validate token");
-
-      if (error.response.status === 401) {
-        if (token.telegramId === undefined || token.telegramId === 0) {
-          console.log(`Invalid token: ${token.token}`);
-          await axios.post(`${API_BE_URL}/bot/sendMessage`, {
-            chatId: 1370196228,
-            tokenId: token.id,
-            message: `Token expired or invalid (Telegram ID null) : \n Bot : ${token.botId} \n TelegramId : ${token.telegramId} \n Token : ${token.token}`,
-          });
-        } else {
-          console.log(`Invalid token: ${token.token}`);
-          await axios.post(`${API_BE_URL}/bot/sendMessage`, {
-            chatId: token.telegramId,
-            tokenId: token.id,
-            message: `Token expired or invalid: \n Bot : ${token.botId} \n TelegramId : ${token.telegramId} \n Token : ${token.token}`,
-          });
-        }
-      }
+      console.log(`[ Error ] : token not valid , response code : ${error}`);
     }
   }
+  console.log(`[ Token valid ] : ${validToken.length}\n`);
   return validToken;
 };
