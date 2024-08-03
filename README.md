@@ -11,6 +11,9 @@ banana-bot is a Telegram automation tool designed to help you manage and interac
 - Auto tap tap
 - Auto claim farming rewards
 - Auto harvest lotery
+- Auto mission completed
+- Auto claim rewards mission
+- Auto claim lottery mission rewards
 - support multi account
 
 ### How to use

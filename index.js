@@ -3,14 +3,15 @@ const express = require("express");
 const { claimLotery } = require("./func/claimLotery");
 const { clickRewards } = require("./func/click");
 const { configDotenv } = require("dotenv");
+const { claimMission } = require("./func/claimMission");
 configDotenv();
 
 // Schedule the task to run every hour on the hour
-claimLotery();
-clickRewards();
+// claimLotery();
+// clickRewards();
 
-cron.schedule("0 * * * *", claimLotery);
-cron.schedule("0 * * * *", clickRewards);
+// cron.schedule("0 * * * *", claimLotery);
+// cron.schedule("0 * * * *", clickRewards);
 
 // Start the server
 const port = process.env.PORT || 105;
@@ -21,5 +22,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, async () => {
+  claimMission();
   console.log(`Server is running on port ${port}`);
 });
